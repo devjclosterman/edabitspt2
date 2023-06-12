@@ -56,23 +56,40 @@ console.log("I'm working for you Mr. Closterman")
 //➞ [9, 8, 7, 4]
 
 
-const inclusiveArray = (start, end) => {
-    if(start > end) {
-        return start;
-    }
-    let inclusive = [];
-  for (let i = start; i < end + 1; i++) {
-    inclusive.push(i)
-    // console.log(inclusive)
+// const inclusiveArray = (start, end) => {
+//     if(start > end) {
+//         return start;
+//     }
+//     let inclusive = [];
+//   for (let i = start; i < end + 1; i++) {
+//     inclusive.push(i)
+//     // console.log(inclusive)
+//   }
+//   return inclusive;
+// }
+
+// console.log(inclusiveArray(1, 5))
+// // ➞ [1, 2, 3, 4, 5]
+// console.log(inclusiveArray(2, 8))
+// // ➞ [2, 3, 4, 5, 6, 7, 8]
+// console.log(inclusiveArray(10, 20))
+// // ➞ [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+// console.log(inclusiveArray(17, 5))
+// ➞ [17
+
+const countDigits = (arr, type) => {
+  if(type === 'odd') {
+    return arr.map(x => x.toString().split('').filter(y => y % 2 !== 0).length)}
+  else {
+    return arr.map(x => x.toString().split('').filter(y => y % 2 === 0).length)
   }
-  return inclusive;
 }
 
-console.log(inclusiveArray(1, 5))
-// ➞ [1, 2, 3, 4, 5]
-console.log(inclusiveArray(2, 8))
-// ➞ [2, 3, 4, 5, 6, 7, 8]
-console.log(inclusiveArray(10, 20))
-// ➞ [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-console.log(inclusiveArray(17, 5))
-// ➞ [17
+console.log(countDigits([22, 53, 99, 61, 777, 8], "odd"))
+// ➞ [0, 2, 2, 1, 3, 0]
+countDigits([22, 53, 99, 61, 777, 8], "even")
+// ➞ [2, 0, 0, 1, 0, 1]
+countDigits([54, 113, 89, 10], "odd")
+// ➞ [1, 3, 1, 1]
+countDigits([54, 113, 89, 10], "even")
+// ➞ [1, 0, 1, 1
