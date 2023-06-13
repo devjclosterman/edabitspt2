@@ -97,4 +97,131 @@ console.log("I'm working for you Mr. Closterman")
 //Important algorithims
 
 // Create Closures
+// function changeColor(color) {
+//     return function () {
+//     document.body.style.background = 'color';
+// }     
+//     }
 
+// document.querySelector('#blue').addEventListener('click', () => changeColor('#0f62fe'))
+// document.querySelector('#pink').addEventListener('click', () => changeColor('##ff7eb6'))
+// document.querySelector('#green').addEventListener('click', () => changeColor('#42be65'))
+
+
+//new Set
+// function foodTruckFesitval(menus) {
+//     let flatMenus = menu.flat();
+    
+//     let combinedMenu = new Set();
+//     flatMenus.forEach(item => {
+//         combinedMenu.add(item);
+//     });
+//     const menuNode = document.querySelector('#combined-menu');
+//     for(let item of combinedMenu) {
+//         let foodNode = document.createElement('li');
+//         foodNode.innerText = item;
+//         menuNode.appendChild(foodNode)
+//     }
+// }
+// foodTruckFestival([['tacos', 'burgers'], ['Pizza'], ['burgers', 'fries']])
+
+
+
+//G-function
+
+// function* getStop() {
+//     yield 'PoughKeepies'
+//     yield 'NewBourough'
+//     yield 'Yonkers'
+//     yield 'Bronx'
+//     yield 'Grand Central'
+// }
+
+// const nycTrainLine = getStop();
+// const nextStopButton = document.querySelector('#next-stop');
+// nextStopButton.addEventListener('click', () => {
+//     let currStop = nycTrainLine.next();
+//     if(currStop.done) {
+//         console.log('We made IT!!');
+//         nextStopButton.setAttribute('disabled', true);
+//     } else {
+//         console.log(currStop)
+//     }
+// })
+
+// function numPermutations(letters) {
+//   let total;
+//   for (let i = 0; i < letters.length; i++) {
+//     if(total === undefined) {
+//         total = 1;
+//         continue;
+//     }    
+//     total *= 1;
+//   }
+//   return total;
+// }
+// function numPermutations(letters) {
+//     if(letters.length === 1) {
+//         return 1;
+//     }
+//     return letters.length * numPermutations(letters.slice(1))
+// }
+
+// console.log(numPermutations('hello'));
+
+// async function getUsers() {
+//     let people = await fetch('https://randomuser.me/api/?results=5');
+//     let data = await people.json();
+//     const timeline = document.querySelector('#timeline');
+//     data.results.forEach(person => {
+//         let image = document.createElement('img');
+//         image.src = person.picture.medium;
+//         timeline.appendChild(image);
+//     })
+// }
+
+// getUsers();
+
+//Password Checker
+// function checkPassword(password) {
+//     let oneLowerCaseLetter = /(?=.+[a-z])/;
+//     let oneUpperCaseLetter = /(?=.+[A-Z])/;
+//     let oneDigit = /(?=.+[0-9])/;
+//     let oneSpecialCharacter = /(?=.+[!@#$%^&*])/;
+//     let minimumEightCharacters = /(?=.{8,})/;
+//     let isValid =
+//     oneLowerCaseLetter.test(password) &&
+//     oneUpperCaseLetter.test(password) && 
+//     oneDigit.test(password) && 
+//     oneSpecialCharacter.test(password) &&
+//     minimumEightCharacters.test(password);
+
+//     return isValid ? 'Your password is valid' : 'Your password is invalid';
+// }
+
+// console.log(checkPassword('abc')) //invalid
+
+//Recursive functions
+// let count = 1;
+// function recursiveFn() {
+//     console.log(`Recursive ${count}`)
+//     if(count === 10) return;
+//         count++
+//        recursiveFn();
+// }
+
+// console.log(recursiveFn());
+
+function oddArray(arr) {
+  let result = [];
+  function helperRecursiveFn(arr) {
+    if(arr.length === 0) return; //1
+    else if(arr[0] % 2 !== 0) result.push(arr[0]) //2
+  helperRecursiveFn(arr.slice(1)); //3
+}
+helperRecursiveFn(arr);
+return result;
+}
+
+console.log(oddArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+//output-> [1, 3, 5, 7 , 9]
