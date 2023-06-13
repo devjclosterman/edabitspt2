@@ -97,4 +97,30 @@ console.log("I'm working for you Mr. Closterman")
 //Important algorithims
 
 // Create Closures
+// function changeColor(color) {
+//     return function () {
+//     document.body.style.background = 'color';
+// }     
+//     }
 
+// document.querySelector('#blue').addEventListener('click', () => changeColor('#0f62fe'))
+// document.querySelector('#pink').addEventListener('click', () => changeColor('##ff7eb6'))
+// document.querySelector('#green').addEventListener('click', () => changeColor('#42be65'))
+
+
+//new Set
+function foodTruckFesitval(menus) {
+    let flatMenus = menu.flat();
+    
+    let combinedMenu = new Set();
+    flatMenus.forEach(item => {
+        combinedMenu.add(item);
+    });
+    const menuNode = document.querySelector('#combined-menu');
+    for(let item of combinedMenu) {
+        let foodNode = document.createElement('li');
+        foodNode.innerText = item;
+        menuNode.appendChild(foodNode)
+    }
+}
+foodTruckFestival([['tacos', 'burgers'], ['Pizza'], ['burgers', 'fries']])
