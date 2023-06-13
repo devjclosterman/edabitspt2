@@ -77,19 +77,24 @@ console.log("I'm working for you Mr. Closterman")
 // console.log(inclusiveArray(17, 5))
 // ➞ [17
 
-const countDigits = (arr, type) => {
-  if(type === 'odd') {
-    return arr.map(x => x.toString().split('').filter(y => y % 2 !== 0).length)}
-  else {
-    return arr.map(x => x.toString().split('').filter(y => y % 2 === 0).length)
-  }
-}
+// const countDigits = (arr, type) => {
+//   if(type === 'odd') {
+//     return arr.map(x => x.toString().split('').filter(y => y % 2 !== 0).length)}
+//   else {
+//     return arr.map(x => x.toString().split('').filter(y => y % 2 === 0).length)
+//   }
+// }
 
-console.log(countDigits([22, 53, 99, 61, 777, 8], "odd"))
-// ➞ [0, 2, 2, 1, 3, 0]
-countDigits([22, 53, 99, 61, 777, 8], "even")
-// ➞ [2, 0, 0, 1, 0, 1]
-countDigits([54, 113, 89, 10], "odd")
-// ➞ [1, 3, 1, 1]
-countDigits([54, 113, 89, 10], "even")
+// console.log(countDigits([22, 53, 99, 61, 777, 8], "odd"))
+// // ➞ [0, 2, 2, 1, 3, 0]
+// countDigits([22, 53, 99, 61, 777, 8], "even")
+// // ➞ [2, 0, 0, 1, 0, 1]
+// countDigits([54, 113, 89, 10], "odd")
+// // ➞ [1, 3, 1, 1]
+// countDigits([54, 113, 89, 10], "even")
 // ➞ [1, 0, 1, 1
+
+//Important algorithims
+
+// Create Closures
+
