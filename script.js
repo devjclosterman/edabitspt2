@@ -212,16 +212,79 @@ console.log("I'm working for you Mr. Closterman")
 
 // console.log(recursiveFn());
 
-function oddArray(arr) {
-  let result = [];
-  function helperRecursiveFn(arr) {
-    if(arr.length === 0) return; //1
-    else if(arr[0] % 2 !== 0) result.push(arr[0]) //2
-  helperRecursiveFn(arr.slice(1)); //3
-}
-helperRecursiveFn(arr);
-return result;
-}
+// function oddArray(arr) {
+//   let result = [];
+//   function helperRecursiveFn(arr) {
+//     if(arr.length === 0) return; //1
+//     else if(arr[0] % 2 !== 0) result.push(arr[0]) //2
+//   helperRecursiveFn(arr.slice(1)); //3
+// }
+// helperRecursiveFn(arr);
+// return result;
+// }
 
-console.log(oddArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(oddArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 //output-> [1, 3, 5, 7 , 9]
+
+
+//Few expressions(notations) which represent the time complexity of an algo
+// 0(1): Constant time complexity. This is ideal case.
+// O (log n): Logarithimic time complexity. if log(n) = x. then
+// it is same as 10^x;
+// 0 (n): linear time complexity. Time increases with the number of
+// inputs in a linear manner. for ex, if one input takes 1ms, 4 inputs will
+// take 4ms to execute the algo;
+// 0(n^2): Quadratic time complexity. this mostly happens in case of nested loops.
+// 0(n!): Factorial time complexity. this is the worst case,
+// which should be avoided.
+// write your algo such that it can be represented by the first three notations.
+
+
+
+
+//Time complexity of O(n^2) because nested loops
+// function bubbleSort(array) {
+//     const length = array.length;
+//     for (let i = 0; i < length - 1; i++) {
+//       for (let j = 0; j < length - 1 - i; j++) {
+//         if (array[j] > array[j + 1]) {
+//           [array[j], array[j + 1]] = [array[j + 1], array[j]]; // Swap elements
+//         }
+//       }
+//     }
+//     return array;
+//   }
+// console.log(bubbleSort[5, 3, 8, 4, 2])
+
+
+//binary search
+// function binarySearch(array, target) {
+//     let left = 0;
+//     let right = array.length - 1;
+
+//     while(left <= right) {
+//         const mid = Math.floor((left + right) / 2);
+//  if(array[mid] === target) {
+//     return mid; //Element found
+//  } else if(array[mid] < target) {
+//     left = mid + 1; //Search in the right half
+//  } else {
+//     right = mid - 1; //Search in the left half
+//  }
+//     }
+//     return -1; //Element not found
+// }
+
+
+// const replace = (str, r) => {
+//  return str.replace(new RegExp(`[${r}]`, 'g'), '#')
+// }
+
+// console.log(replace("abcdef", "c-e"))
+// //➞ "ab###f"
+// console.log(replace("rattle", "r-z"))
+// //➞ "#a##le"
+// console.log(replace("microscopic", "i-i"))
+// //➞ "m#croscop#c"
+// console.log(replace("", "a-z"))
+//➞ "
