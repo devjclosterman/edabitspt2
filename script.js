@@ -239,10 +239,23 @@ console.log("I'm working for you Mr. Closterman")
 // which should be avoided.
 // write your algo such that it can be represented by the first three notations.
 
+//Linear time complexity
+const array = [3, 8, 12, 6, 10, 2];
+//find 10 in the given array
+function checkForN(array, n) {
+    for(let i = 0; i < array.length; i++) {
+        if(n === array[i]) {
+            return `${true} ${n} exists at index ${i}`;
+        }
+    }
+    return `${false} ${n} does not exist in the given array`;
+}
 
+console.log(checkForN(array, 10));
 
 
 //Time complexity of O(n^2) because nested loops
+//(n * n) that is Quadratic time complexity
 // function bubbleSort(array) {
 //     let isSwapped;
 
@@ -295,6 +308,16 @@ console.log("I'm working for you Mr. Closterman")
 
 // console.log(mergeSortedArray([2, 5, 7, 9], [8, 4, 1, 6]))
 
+const mergeSortedAlgo = array => {
+    if(array.length <= 1) return array;
+
+    let midPoint = Math.floor(array.length / 2);
+    let leftArray = mergeSortedAlgo(array.slice(0, midPoint));
+    let rightArray = mergeSortedAlgo(array.slice(0, midPoint));
+
+    return mergeSortedArray(leftArray, rightArray);
+}
+
 
 //binary search
 // function binarySearch(array, target) {
@@ -330,121 +353,122 @@ console.log("I'm working for you Mr. Closterman")
 
 //Encapsulation example
 
-class Car {
-    constructo(make, model, year) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-    }
+// class Car {
+//     constructo(make, model, year) {
+//         this.make = make;
+//         this.model = model;
+//         this.year = year;
+//     }
 
-    getMake() {
-        return this.make;
-    }
+//     getMake() {
+//         return this.make;
+//     }
 
-    setMake() {
-        this.make = make;
-    }
-}
+//     setMake() {
+//         this.make = make;
+//     }
+// }
 
-const myCar = new Car('Toyota', 'Camry', 2021);
-console.log(myCar.getMake()); //Output: Toyota
-myCar.setMake('Honda');
-console.log(myCar.getMake()); //Output: Honda
+// const myCar = new Car('Toyota', 'Camry', 2021);
+// console.log(myCar.getMake()); //Output: Toyota
+// myCar.setMake('Honda');
+// console.log(myCar.getMake()); //Output: Honda
 
-//Inheritance
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+// //Inheritance
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
 
-    speak() {
-        console.log(`${this.name} makes a sound.`);
-    }
-}
+//     speak() {
+//         console.log(`${this.name} makes a sound.`);
+//     }
+// }
 
-class Dog extends Animal {
-    speak() {
-        console.log(`${this.name} barks.`);
-    }
-}
+// class Dog extends Animal {
+//     speak() {
+//         console.log(`${this.name} barks.`);
+//     }
+// }
 
-const myDog = new Dog('Buddy');
-myDog.speak(); //Output: Buddy barks
+// const myDog = new Dog('Buddy');
+// myDog.speak(); //Output: Buddy barks
 
-//Polymorphism
-class Shape {
-    area() {
-        console.log('Calculating area of a shape.');
-    }
-}
+// //Polymorphism
+// class Shape {
+//     area() {
+//         console.log('Calculating area of a shape.');
+//     }
+// }
 
-class Circle extends Shape {
-    constructor(radius) {
-        super();
-        this.radius = radius;
-    }
+// class Circle extends Shape {
+//     constructor(radius) {
+//         super();
+//         this.radius = radius;
+//     }
 
-    area() {
-        console.log(`Calculating area of a circle: ${Math.PI * this.radius * this.radius}`);
- }
-}
+//     area() {
+//         console.log(`Calculating area of a circle: ${Math.PI * this.radius * this.radius}`);
+//  }
+// }
 
-class Rectangle extends Shape {
-  constructor(width, height) {
-    super();
-    this.width = width;
-    this.height = height;
-  }
+// class Rectangle extends Shape {
+//   constructor(width, height) {
+//     super();
+//     this.width = width;
+//     this.height = height;
+//   }
 
-  area() {
-    console.log(`Calculating area of a rectangle: ${this.width * this.height}`);
-  }
-}
+//   area() {
+//     console.log(`Calculating area of a rectangle: ${this.width * this.height}`);
+//   }
+// }
 
-const shapes = [new Circle(5), new Rectangle(4, 6)];
-shapes.forEach(shape => {
-    shape.area();
-});
+// const shapes = [new Circle(5), new Rectangle(4, 6)];
+// shapes.forEach(shape => {
+//     shape.area();
+// });
 
-//Abstraction
-class Shape {
-    constructor() {
-        if(new.target === Shape) {
-            throw new Error('Shape is an abstarct class and cannot be instantied directly');
-        }
-    }
+// //Abstraction
+// class Shape {
+//     constructor() {
+//         if(new.target === Shape) {
+//             throw new Error('Shape is an abstarct class and cannot be instantied directly');
+//         }
+//     }
 
-    calculateArea() {
-        throw new Error('calculateArea() method must be implemented by subclasses');
-    }
-}
+//     calculateArea() {
+//         throw new Error('calculateArea() method must be implemented by subclasses');
+//     }
+// }
 
-class Circle extends Shape {
-    constructor(radius) {
-        super();
-        this.radius = radius;
-    }
+// class Circle extends Shape {
+//     constructor(radius) {
+//         super();
+//         this.radius = radius;
+//     }
 
-    calculateArea() {
-        return Math.PI * this.radius * this.radius;
-    }
-}
+//     calculateArea() {
+//         return Math.PI * this.radius * this.radius;
+//     }
+// }
 
-class Rectangle extends Shape {
-    constructor(width, height) {
-        super();
-        this.width = width;
-        this.height = height;
-    }
+// class Rectangle extends Shape {
+//     constructor(width, height) {
+//         super();
+//         this.width = width;
+//         this.height = height;
+//     }
 
-    calculateArea() {
-        return this.width * this.height;
-    }
-}
+//     calculateArea() {
+//         return this.width * this.height;
+//     }
+// }
 
-//Usage
-const circle = new Circle(5);
-console.log(circle.calculateArea()); //Output: 78.53981633974483
+// //Usage
+// const circle = new Circle(5);
+// console.log(circle.calculateArea()); //Output: 78.53981633974483
 
-const rectangle = new Rectangle(4, 6);
-console.log(rectangle.calculateArea()); //Output: 24
+// const rectangle = new Rectangle(4, 6);
+// console.log(rectangle.calculateArea()); //Output: 24
+
