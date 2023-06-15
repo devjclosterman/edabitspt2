@@ -243,27 +243,57 @@ console.log("I'm working for you Mr. Closterman")
 
 
 //Time complexity of O(n^2) because nested loops
-function bubbleSort(array) {
-    console.log(array)
-    let isSwapped;
+// function bubbleSort(array) {
+//     let isSwapped;
 
-  for (let i = array.length; i > 0; i--) {
-      isSwapped = false;
+//   for (let i = array.length; i > 0; i--) {
+//       isSwapped = false;
 
-      for (let j = 0; j < i - 1; j++) {
-          if(array[j] > array[j + 1]) {
-            [array[j], array[j + 1]] = [array[j + 1], array[j]];
-            isSwapped = true;
-          }
-      }
-      if(!isSwapped) {
-        break;
-      }
-  }
-  return array;
-  }
+//       for (let j = 0; j < i - 1; j++) {
+//           if(array[j] > array[j + 1]) {
+//             [array[j], array[j + 1]] = [array[j + 1], array[j]];
+//             isSwapped = true;
+//           }
+//       }
+//       if(!isSwapped) {
+//         break;
+//       }
+//   }
+//   return array;
+//   }
 
-console.log(bubbleSort([5, 3, 8, 4, 2]))
+// console.log(bubbleSort([5, 3, 8, 4, 2]))
+
+//Merge Sort Algo
+// const mergeSortedArray = (array1, array2) => {
+//     let result = [];
+//     let i = 0;
+//     let j = 0;
+
+//     while(i < array1[i].length && j < array2.length) {
+//         if(array1[i] < array2[j]) {
+//             result.push(array1[i]);
+//             i++;
+//         } else {
+//             result.push(array2[j]);
+//             j++;
+//         }
+//     }
+
+//     while(i < array1.length) {
+//         result.push(array1[i]);
+//         i++;
+//     }
+
+//     while(j < array2.length) {
+//         result.push(array2[j])
+//         j++;
+//     }
+
+//     return result;
+// };
+
+// console.log(mergeSortedArray([2, 5, 7, 9], [8, 4, 1, 6]))
 
 
 //binary search
@@ -297,3 +327,124 @@ console.log(bubbleSort([5, 3, 8, 4, 2]))
 // //➞ "m#croscop#c"
 // console.log(replace("", "a-z"))
 //➞ "
+
+//Encapsulation example
+
+class Car {
+    constructo(make, model, year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    getMake() {
+        return this.make;
+    }
+
+    setMake() {
+        this.make = make;
+    }
+}
+
+const myCar = new Car('Toyota', 'Camry', 2021);
+console.log(myCar.getMake()); //Output: Toyota
+myCar.setMake('Honda');
+console.log(myCar.getMake()); //Output: Honda
+
+//Inheritance
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+const myDog = new Dog('Buddy');
+myDog.speak(); //Output: Buddy barks
+
+//Polymorphism
+class Shape {
+    area() {
+        console.log('Calculating area of a shape.');
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    area() {
+        console.log(`Calculating area of a circle: ${Math.PI * this.radius * this.radius}`);
+ }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+
+  area() {
+    console.log(`Calculating area of a rectangle: ${this.width * this.height}`);
+  }
+}
+
+const shapes = [new Circle(5), new Rectangle(4, 6)];
+shapes.forEach(shape => {
+    shape.area();
+});
+
+//Abstraction
+class Shape {
+    constructor() {
+        if(new.target === Shape) {
+            throw new Error('Shape is an abstarct class and cannot be instantied directly');
+        }
+    }
+
+    calculateArea() {
+        throw new Error('calculateArea() method must be implemented by subclasses');
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    calculateArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    calculateArea() {
+        return this.width * this.height;
+    }
+}
+
+//Usage
+const circle = new Circle(5);
+console.log(circle.calculateArea()); //Output: 78.53981633974483
+
+const rectangle = new Rectangle(4, 6);
+console.log(rectangle.calculateArea()); //Output: 24
