@@ -240,18 +240,19 @@ console.log("I'm working for you Mr. Closterman")
 // write your algo such that it can be represented by the first three notations.
 
 //Linear time complexity
-const array = [3, 8, 12, 6, 10, 2];
-//find 10 in the given array
-function checkForN(array, n) {
-    for(let i = 0; i < array.length; i++) {
-        if(n === array[i]) {
-            return `${true} ${n} exists at index ${i}`;
-        }
-    }
-    return `${false} ${n} does not exist in the given array`;
-}
+// const array = [3, 8, 12, 6, 10, 2];
+// //find 10 in the given array
+// function checkForN(array, n) {
+//     for(let i = 0; i < array.length; i++) {
+//         if(n === array[i]) {
+//             return `${true} ${n} exists at index ${i}`;
+//         }
+//     }
+//     return `${false} ${n} does not exist in the given array`;
+// }
 
-console.log(checkForN(array, 10));
+// console.log(checkForN(array, 10));
+
 
 
 //Time complexity of O(n^2) because nested loops
@@ -308,16 +309,45 @@ console.log(checkForN(array, 10));
 
 // console.log(mergeSortedArray([2, 5, 7, 9], [8, 4, 1, 6]))
 
-const mergeSortedAlgo = array => {
-    if(array.length <= 1) return array;
+// const mergeSortedAlgo = array => {
+//     console.log(array)
+//     if(array.length <= 1) return array;
 
-    let midPoint = Math.floor(array.length / 2);
-    let leftArray = mergeSortedAlgo(array.slice(0, midPoint));
-    let rightArray = mergeSortedAlgo(array.slice(0, midPoint));
+//     let midPoint = Math.floor(array.length / 2);
+//     let leftArray = mergeSortedAlgo(array.slice(0, midPoint));
+//     let rightArray = mergeSortedAlgo(array.slice(0, midPoint));
 
-    return mergeSortedArray(leftArray, rightArray);
+//     return mergeSortedAlgo(leftArray, rightArray);
+// }
+// console.log(mergeSortedAlgo([2, 5, 7, 9, 8, 4, 1, 6]))
+
+//Pivot Utility
+function pivotUtility(array, start = 0, end = array.length - 1) {
+    let pivotIndex = start;
+    let pivot = array[start];
+
+    for (let i = start + 1; i < array.length; i++) {
+         if(pivot > array[i]) {
+            pivotIndex++;
+            [array[pivotIndex], array[i]] = [array[i], array[pivotIndex]];
+         }
+    }
+[array[pivotIndex], array[start]] = [array[start], array[pivotIndex]];
+        return pivotIndex;
 }
 
+console.log(pivotUtility([1, 22, 43, 3, 2, 5, 8, 10]))
+
+//QuickSort
+function quickSort(array, left = 0, right = array.length - 1) {
+    console.log(array)
+    if(left < right) {
+        let pivotIndex = pivotUtility(array, left, right);
+        quickSort(array, left, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, right);
+    }
+    return array;
+}
 
 //binary search
 // function binarySearch(array, target) {
