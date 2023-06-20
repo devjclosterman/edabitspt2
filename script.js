@@ -322,32 +322,32 @@ console.log("I'm working for you Mr. Closterman")
 // console.log(mergeSortedAlgo([2, 5, 7, 9, 8, 4, 1, 6]))
 
 //Pivot Utility
-function pivotUtility(array, start = 0, end = array.length - 1) {
-    let pivotIndex = start;
-    let pivot = array[start];
+// function pivotUtility(array, start = 0, end = array.length - 1) {
+//     let pivotIndex = start;
+//     let pivot = array[start];
 
-    for (let i = start + 1; i < array.length; i++) {
-         if(pivot > array[i]) {
-            pivotIndex++;
-            [array[pivotIndex], array[i]] = [array[i], array[pivotIndex]];
-         }
-    }
-[array[pivotIndex], array[start]] = [array[start], array[pivotIndex]];
-        return pivotIndex;
-}
+//     for (let i = start + 1; i < array.length; i++) {
+//          if(pivot > array[i]) {
+//             pivotIndex++;
+//             [array[pivotIndex], array[i]] = [array[i], array[pivotIndex]];
+//          }
+//     }
+// [array[pivotIndex], array[start]] = [array[start], array[pivotIndex]];
+//         return pivotIndex;
+// }
 
-console.log(pivotUtility([1, 22, 43, 3, 2, 5, 8, 10]))
+// console.log(pivotUtility([1, 22, 43, 3, 2, 5, 8, 10]))
 
-//QuickSort
-function quickSort(array, left = 0, right = array.length - 1) {
-    console.log(array)
-    if(left < right) {
-        let pivotIndex = pivotUtility(array, left, right);
-        quickSort(array, left, pivotIndex - 1);
-        quickSort(array, pivotIndex + 1, right);
-    }
-    return array;
-}
+// //QuickSort
+// function quickSort(array, left = 0, right = array.length - 1) {
+//     console.log(array)
+//     if(left < right) {
+//         let pivotIndex = pivotUtility(array, left, right);
+//         quickSort(array, left, pivotIndex - 1);
+//         quickSort(array, pivotIndex + 1, right);
+//     }
+//     return array;
+// }
 
 //binary search
 // function binarySearch(array, target) {
@@ -502,3 +502,15 @@ function quickSort(array, left = 0, right = array.length - 1) {
 // const rectangle = new Rectangle(4, 6);
 // console.log(rectangle.calculateArea()); //Output: 24
 
+const names = ["Dennis", "Vera", "Bob", "Myla"];
+const jobs = ["Butcher", "Programmer", "Trader Joes", "Web Dev"];
+
+const assignPersonToJob = (names, jobs) => {
+    let obj = {};
+    for (let i = 0; i < names.length; i++) {
+        obj[names[i]] = jobs[i];
+    }
+    return obj;
+}
+
+console.log(assignPersonToJob());
