@@ -502,15 +502,24 @@ console.log("I'm working for you Mr. Closterman")
 // const rectangle = new Rectangle(4, 6);
 // console.log(rectangle.calculateArea()); //Output: 24
 
-const names = ["Dennis", "Vera", "Bob", "Myla"];
-const jobs = ["Butcher", "Programmer", "Trader Joes", "Web Dev"];
+// const names = ["Dennis", "Vera", "Bob", "Myla"];
+// const jobs = ["Butcher", "Programmer", "Trader Joes", "Web Dev"];
 
-const assignPersonToJob = (names, jobs) => {
-    let obj = {};
-    for (let i = 0; i < names.length; i++) {
-        obj[names[i]] = jobs[i];
-    }
-    return obj;
+// const assignPersonToJob = (names, jobs) => {
+//     let obj = {};
+//     for (let i = 0; i < names.length; i++) {
+//         obj[names[i]] = jobs[i];
+//     }
+//     return obj;
+// }
+
+// console.log(assignPersonToJob());
+
+const mapLetters = (str) => {
+    return str.split('').reduce((acc, cur, index) => {
+        !acc[cur] ? acc[cur] = [index] : acc[cur].push(index);
+        return acc;
+    }, {})
 }
 
-console.log(assignPersonToJob());
+console.log(mapLetters('dodo'))
