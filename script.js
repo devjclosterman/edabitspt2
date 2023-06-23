@@ -515,11 +515,19 @@ console.log("I'm working for you Mr. Closterman")
 
 // console.log(assignPersonToJob());
 
-const mapLetters = (str) => {
-    return str.split('').reduce((acc, cur, index) => {
-        !acc[cur] ? acc[cur] = [index] : acc[cur].push(index);
-        return acc;
-    }, {})
+// const mapLetters = (str) => {
+//     return str.split('').reduce((acc, cur, index) => {
+//         !acc[cur] ? acc[cur] = [index] : acc[cur].push(index);
+//         return acc;
+//     }, {})
+// }
+
+// console.log(mapLetters('dodo'))
+
+const alphabeticalOrder = (arr) => {
+    return arr.sort(function(a, b) {
+        return a === b ? 0 : a > b ? 1 : -1
+    })
 }
 
-console.log(mapLetters('dodo'))
+console.log(alphabeticalOrder(["A", "R", "J", "T"]))
