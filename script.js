@@ -524,10 +524,20 @@ console.log("I'm working for you Mr. Closterman")
 
 // console.log(mapLetters('dodo'))
 
-const alphabeticalOrder = (arr) => {
-    return arr.sort(function(a, b) {
-        return a === b ? 0 : a > b ? 1 : -1
-    })
+// const alphabeticalOrder = (arr) => {
+//     return arr.sort(function(a, b) {
+//         return a === b ? 0 : a > b ? 1 : -1
+//     })
+// }
+
+// console.log(alphabeticalOrder(["A", "R", "J", "T"]))
+
+const trace = (arr) => {
+    let matrix = 0;
+    for (let i = 0; i < arr.length; i++) {
+    matrix += arr[i][i];        
+    }
+    return matrix;
 }
 
-console.log(alphabeticalOrder(["A", "R", "J", "T"]))
+console.log(trace([[1, 4], [4, 1]]))
