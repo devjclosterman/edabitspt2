@@ -532,12 +532,23 @@ console.log("I'm working for you Mr. Closterman")
 
 // console.log(alphabeticalOrder(["A", "R", "J", "T"]))
 
-const trace = (arr) => {
-    let matrix = 0;
-    for (let i = 0; i < arr.length; i++) {
-    matrix += arr[i][i];        
-    }
-    return matrix;
-}
+// const trace = (arr) => {
+//     let matrix = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//     matrix += arr[i][i];        
+//     }
+//     return matrix;
+// }
 
-console.log(trace([[1, 4], [4, 1]]))
+// console.log(trace([[1, 4], [4, 1]]))
+
+//Now reverse
+// const trace = (arr) => {
+//     let matrix = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//     matrix += arr[i][arr[i].length - (i + 1)];
+// }
+// return matrix;
+// }
+
+// console.log(trace([1, 4], [4, 1]))
